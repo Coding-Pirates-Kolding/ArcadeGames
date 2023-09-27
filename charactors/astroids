@@ -5,7 +5,7 @@ D = 0
 class astroids(pygame.sprite.Sprite):
     def __init__(self, screen_size):
         super().__init__()
-        D = 0.0, 360.0
+        D = 360
 
         # Load and scale enemy image
         self.image = pygame.image.load(os.path.join('game', 'sprites', 'enemy.jpg')).convert_alpha()
