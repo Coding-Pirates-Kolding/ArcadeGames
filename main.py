@@ -1,17 +1,17 @@
 import os
 import pygame
-from graphics import blitz
-from graphics import brunaffald
-from graphics import eksplosion
-from graphics import miniscrap2
-from graphics import mimiscrap1
-from graphics import rumskib
-from graphics import rumskibmørkt
-from graphics import scrap1
-from graphics import scrap2
-from graphics import skraldebunke
-from graphics import skraldespand
-from graphics import stjernehimmel
+#from graphics import blitz
+#from graphics import brunaffald
+#from graphics import eksplosion
+#from graphics import miniscrap2
+#from graphics import mimiscrap1
+#from graphics import rumskib
+#from graphics import rumskibmørkt
+#from graphics import scrap1
+#from graphics import scrap2
+#from graphics import skraldebunke
+#from graphics import skraldespand
+#from graphics import stjernehimmel
 
 pygame.init()
 WINDOW_SIZE = (1280, 720)
@@ -19,9 +19,10 @@ screen = pygame.display.set_mode((1920, 1080), pygame.FULLSCREEN)
 
 font = pygame.font.SysFont(None, 48)
 pygame.display.set_caption("Not Astroids")
-background_image = pygame.image.load(os.path.join('game', 'graphichs', 'stjernehimmel.png')).convert()
+
+# Ensure the file path is correct
+background_image = pygame.image.load(os.path.join('graphics/stjernehimmel.png')).convert()
 background_image = pygame.transform.scale(background_image, WINDOW_SIZE)
-background_color = (255, 255, 255)
 
 def create_button(position, size, color, text, text_color):
     button = pygame.Surface(size)
@@ -56,12 +57,14 @@ while True:
         elif event.type == pygame.MOUSEBUTTONDOWN:
             for button in buttons:
                 if button["rect"].collidepoint(event.pos) and button["id"] == 1:
-                    play(Player, astroids)
+                    # Define Player, astroids, and play function
+                    # play(Player, astroids)
+                    pass
                 elif button["rect"].collidepoint(event.pos) and button["id"] == 2:
                     pygame.quit()
                     quit()
 
-    screen.fill((0, 0, 0))
+    screen.blit(background_image, (0, 0))  # Blit the background image
     for i, button_surface in enumerate(button_surfaces):
         screen.blit(button_surface, buttons[i]["rect"])
     pygame.display.update()
